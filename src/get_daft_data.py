@@ -13,12 +13,11 @@ import datetime
 
 from bson import json_util
 from bs4 import BeautifulSoup
-from string import punctuation
 
 
 SEARCH_AREA = ""
 
-DIR_PATH = '/home/owen/Code/Sukasa/src/backend/analytics/data'
+DIR_PATH = '/home/owen/Code/PropertyData/src/data'
 
 BASIC_REQUEST = {
     "baseURL": "https://www.daft.ie",
@@ -211,3 +210,7 @@ property_data = get_daft_dataset(
         area='',
         property_type='sale',
         sort_by='recentlyAdded')
+properties_json = json.dumps(property_data, default=json_util.default)
+json_file = open(DIR_PATH + '/daftPropertyData.json', 'w')
+json_file.write(properties_json)
+json_file.close()
