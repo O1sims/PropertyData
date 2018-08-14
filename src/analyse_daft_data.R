@@ -203,18 +203,16 @@ propertyPriceHeatmap <- function(property.data) {
       panel.border = element_blank(), 
       panel.grid.major = element_blank(),
       panel.grid.minor = element_blank(),
-      panel.background = element_blank(),
-      legend.position = "none") + 
+      panel.background = element_blank()) + 
     scale_fill_gradient(
       low = "#158cba", 
       high = "#e54f53")
   
   getwd() %>%
     paste0("/images/irelandPriceHeatmap.png") %>%
-    ggsave(width = 13.9, height = 15.4, units = "cm")
+    ggsave(width = 13, height = 15, units = "cm")
   
   return(propertyHeatmap)
-  
 }
 
 
